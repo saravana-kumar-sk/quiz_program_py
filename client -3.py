@@ -1,0 +1,11 @@
+import socket as soc
+s=soc.socket()
+hostname=soc.gethostname()
+ipaddress=soc.gethostbyname(hostname)
+s.connect((ipaddress,500))
+qns=s.recv(1000)
+print(qns.decode())
+ans=input("answer:")
+s.send(ans.encode())
+marks=s.recv(100)
+print("marks:",marks.decode())
